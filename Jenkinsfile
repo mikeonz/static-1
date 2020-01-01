@@ -9,7 +9,7 @@ pipeline {
                     ls -alh
             '''
         sh  'tidy -q -e *.html'
-        withAWS(region:'us-west-2',credentials:'jenkins') {
+        withAWS(region:'us-west-2',credentials:'AKIAR3S3KTJ7YOV74E4N') {
                  sh 'echo "Uploading content with AWS creds"'
                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'udacityp2jenjinsv1-s3')
                  }
